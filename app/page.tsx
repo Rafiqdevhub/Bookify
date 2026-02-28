@@ -1,7 +1,12 @@
+import { Button } from "@/components/ui/button";
 import React from "react";
 
 const Home = () => {
-  return <div>Welcome to Bookify</div>;
+  return (
+    <div>
+      <Button variant="outline">Hello World</Button>
+    </div>
+  );
 };
 
 export default Home;
