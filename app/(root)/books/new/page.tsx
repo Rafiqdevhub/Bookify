@@ -9,6 +9,7 @@ const Page = () => {
           Upload a PDF to generate your interactive reading experience
         </p>
       </section>
+
       <UploadForm />
     </main>
   );
