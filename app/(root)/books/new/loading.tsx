@@ -1,0 +1,21 @@
+import React from "react";
+import { Loader2 } from "lucide-react";
+
+const BooksNewLoading = () => {
+  return (
+    <div className="loading-wrapper">
+      <div className="loading-shadow-wrapper bg-white shadow-soft-lg">
+        <div className="loading-shadow">
+          <Loader2 className="loading-animation w-12 h-12 text-[#663820]" />
+          <h2 className="loading-title">Preparing Upload</h2>
+          <p className="text-[#777] text-center max-w-xs">
+            Setting up the book upload form. Get ready to add your book to
+            Bookify.
+          </p>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default BooksNewLoading;
