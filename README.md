@@ -2,7 +2,7 @@
 
 Transform your books into interactive AI conversations. Bookify is a modern Next.js application that lets users upload PDF books, intelligently extract and segment content, and engage with books through AI-powered voice conversations.
 
-**Live Demo:** [Bookify](http://localhost:3000)
+**Live Demo:** [Bookify](https://bookify-opal-gamma.vercel.app/)
 
 ---
 
