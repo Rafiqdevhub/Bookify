@@ -5,6 +5,9 @@ import Navbar from "@/components/Navbar";
 import { ClerkProvider } from "@clerk/nextjs";
 import { Toaster } from "sonner";
 
+// Prevent static generation: app requires authentication
+export const dynamic = "force-dynamic";
+
 const ibmPlexSerif = IBM_Plex_Serif({
   variable: "--font-ibm-plex-serif",
   subsets: ["latin"],

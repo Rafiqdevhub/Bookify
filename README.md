@@ -142,6 +142,63 @@ Open [http://localhost:3000](http://localhost:3000) in your browser.
 
 ---
 
+## Docker Deployment
+
+This project is containerized with a multi-stage Next.js production image.
+
+### Files Added
+
+- `Dockerfile` (multi-stage build, non-root runtime)
+- `.dockerignore` (smaller, faster build context)
+- `docker-compose.yml` (Bookify app + MongoDB)
+- `.env.docker.example` (placeholder-only environment template)
+
+### Run with Docker Compose
+
+```bash
+# 1) create environment file
+cp .env.docker.example .env.local
+
+# 2) build and run
+docker compose up --build
+```
+
+App URL: [http://localhost:3000](http://localhost:3000)
+
+### Run Docker Image Only
+
+```bash
+# Build image (publishable key is required at build time for Clerk)
+docker build \
+  --build-arg NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=$NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY \
+  --build-arg NEXT_PUBLIC_ASSISTANT_ID=$NEXT_PUBLIC_ASSISTANT_ID \
+  -t bookify:latest .
+
+# Run container
+docker run --rm -p 3000:3000 --env-file .env.local bookify:latest
+```
+
+### Automated Docker Hub CI/CD
+
+This project includes a GitHub Actions workflow (`.github/workflows/docker-build.yml`) that automatically builds and pushes Docker images to Docker Hub on every push to `main` or `develop` branches.
+
+**Setup required:**
+
+1. Create a Docker Hub account (if not already done)
+2. Follow the [Docker Hub CI/CD Setup Guide](./DOCKER_HUB_SETUP.md) to configure GitHub Secrets
+
+**How it works:**
+
+- ✅ On push to `main`/`develop`: builds, tags, and pushes to Docker Hub
+- ✅ On pull request: builds (for verification, no push)
+- ✅ On version tags (e.g., `v1.0.0`): builds and pushes with semantic versioning
+- ✅ Automatic caching for faster rebuilds
+- ✅ Posts workflow status to pull requests
+
+**See [DOCKER_HUB_SETUP.md](./DOCKER_HUB_SETUP.md) for complete configuration instructions.**
+
+---
+
 ## Database Schema
 
 ### Book Model
