@@ -2,7 +2,7 @@
 
 An AI-powered voice companion that lets you talk with your documents. Readora-AI is a modern Next.js application that lets users upload PDFs, books, or research papers, intelligently extract and segment content, and engage with documents through AI-powered voice conversations.
 
-**Live Demo:** [Readora-AI](https://bookify-opal-gamma.vercel.app/)
+**Live Demo:** [Readora-AI](https://readora-ai.vercel.app/)
 
 ---
 
