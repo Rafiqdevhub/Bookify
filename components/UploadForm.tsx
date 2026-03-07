@@ -172,7 +172,7 @@ const UploadForm = () => {
 
       toast.success("Book uploaded successfully!");
       form.reset();
-      router.push("/");
+      router.push(`/books/${book.data.slug}`);
     } catch (error) {
       console.error(error);
       toast.error("Failed to upload book. Please try again later.");

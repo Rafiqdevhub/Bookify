@@ -1,8 +1,3 @@
-/**
- * Error Handling Utilities
- * Centralized error handling, logging, and user-friendly error messages
- */
-
 import { toast } from "sonner";
 
 // Custom Error Classes
@@ -132,13 +127,6 @@ export const logError = (
       stack: appError.stack,
     });
   }
-
-  // TODO: Send to external error tracking service (e.g., Sentry)
-  // Example:
-  // Sentry.captureException(appError, {
-  //   contexts: { custom: context },
-  //   tags: { code: appError.code },
-  // });
 };
 
 // Toast Notifications
