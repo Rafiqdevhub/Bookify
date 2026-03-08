@@ -4,13 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
-import {
-  SignedIn,
-  SignedOut,
-  SignInButton,
-  UserButton,
-  useUser,
-} from "@clerk/nextjs";
+import { SignedIn, SignedOut, UserButton, useUser } from "@clerk/nextjs";
 import { cn } from "@/lib/utils";
 
 const navItems = [
@@ -70,7 +64,12 @@ const Navbar = () => {
         {/* Desktop Auth Section */}
         <div className="hidden lg:flex ml-auto gap-7.5 items-center">
           <SignedOut>
-            <SignInButton mode="modal" />
+            <Link
+              href="/sign-in"
+              className="px-4 py-2 text-sm font-medium text-[#212a3b] hover:opacity-70 transition-opacity"
+            >
+              Sign In
+            </Link>
           </SignedOut>
           <SignedIn>
             <div className="nav-user-link">
@@ -87,7 +86,12 @@ const Navbar = () => {
         {/* Mobile Menu Button & Auth */}
         <div className="flex lg:hidden items-center gap-4 ml-auto">
           <SignedOut>
-            <SignInButton mode="modal" />
+            <Link
+              href="/sign-in"
+              className="px-3 py-1.5 text-sm font-medium text-[#212a3b] hover:opacity-70 transition-opacity"
+            >
+              Sign In
+            </Link>
           </SignedOut>
           <SignedIn>
             <UserButton />
