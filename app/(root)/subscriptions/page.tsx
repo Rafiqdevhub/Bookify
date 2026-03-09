@@ -1,4 +1,24 @@
+import type { Metadata } from "next";
 import { PricingTable } from "@clerk/nextjs";
+
+export const metadata: Metadata = {
+  title: "Pricing & Plans - Choose Your Subscription",
+  description:
+    "Upgrade to unlock more documents, longer voice sessions, and advanced AI features. Choose the perfect plan for your learning needs.",
+  keywords: [
+    "readora pricing",
+    "subscription plans",
+    "premium features",
+    "AI voice plans",
+    "document limits",
+  ],
+  openGraph: {
+    title: "Readora Pricing - Unlock Premium Features",
+    description:
+      "Choose the perfect plan for your AI-powered learning journey. More documents, longer sessions, advanced features.",
+    type: "website",
+  },
+};
 
 export default function SubscriptionsPage() {
   return (

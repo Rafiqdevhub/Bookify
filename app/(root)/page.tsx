@@ -1,9 +1,16 @@
+import type { Metadata } from "next";
 import React from "react";
 import HeroSection from "@/components/HeroSection";
 import BookCard from "@/components/BookCard";
 import Footer from "@/components/Footer";
 import { getAllBooks } from "@/lib/actions/book.actions";
 import Search from "@/components/Search";
+
+export const metadata: Metadata = {
+  title: "Readora",
+  description:
+    "Readora is an AI-powered voice companion that lets you talk with your documents. Upload PDFs, books, or research papers and ask questions naturally using your voice.",
+};
 
 const Page = async ({
   searchParams,

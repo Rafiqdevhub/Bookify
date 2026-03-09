@@ -37,7 +37,7 @@ const Navbar = () => {
             width={42}
             height={26}
           />
-          <span className="logo-text">Readora-AI</span>
+          <span className="logo-text">Readora</span>
         </Link>
 
         {/* Desktop Navigation */}

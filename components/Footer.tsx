@@ -15,11 +15,11 @@ const Footer = () => {
             <Link href="/" className="flex gap-0.5 items-center mb-3">
               <Image
                 src="/assets/logo.png"
-                alt="Readora-AI"
+                alt="Readora"
                 width={42}
                 height={26}
               />
-              <span className="logo-text">Readora-AI</span>
+              <span className="logo-text">Readora</span>
             </Link>
             <p className="text-gray-600 text-sm">
               Your AI-powered voice companion for documents.

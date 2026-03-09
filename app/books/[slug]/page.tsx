@@ -1,9 +1,52 @@
+import type { Metadata } from "next";
 import { auth } from "@clerk/nextjs/server";
 import { redirect } from "next/navigation";
 import Link from "next/link";
 import { ArrowLeft, BookOpen, Home } from "lucide-react";
 import { getBookBySlug } from "@/lib/actions/book.actions";
 import VapiControls from "@/components/Vapicontrols";
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}): Promise<Metadata> {
+  const { slug } = await params;
+  const result = await getBookBySlug(slug);
+
+  if (!result.success || !result.data) {
+    return {
+      title: "Book Not Found",
+      description: "The requested book could not be found.",
+    };
+  }
+
+  const book = result.data;
+
+  return {
+    title: `${book.title} by ${book.author}`,
+    description: `Read and interact with "${book.title}" by ${book.author} using AI-powered voice conversations. Ask questions, explore concepts, and learn through natural dialogue.`,
+    keywords: [
+      book.title,
+      book.author,
+      "interactive reading",
+      "voice AI book",
+      "AI reading assistant",
+    ],
+    openGraph: {
+      title: `${book.title} - Interactive Voice Reading`,
+      description: `Experience "${book.title}" by ${book.author} with AI-powered voice conversations`,
+      type: "article",
+      images: book.coverURL ? [{ url: book.coverURL, alt: book.title }] : [],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${book.title} by ${book.author}`,
+      description: `Read and interact with "${book.title}" using AI voice technology`,
+      images: book.coverURL ? [book.coverURL] : [],
+    },
+  };
+}
 
 export default async function BookDetailsPage({
   params,

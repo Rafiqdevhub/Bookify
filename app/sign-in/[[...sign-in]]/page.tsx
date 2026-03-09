@@ -1,7 +1,18 @@
+import type { Metadata } from "next";
 import { SignIn } from "@clerk/nextjs";
 import Link from "next/link";
 import { ArrowLeft, BookOpen, Mic, Sparkles } from "lucide-react";
 import { CLERK_AUTH_APPEARANCE_OVERRIDE } from "@/lib/constants";
+
+export const metadata: Metadata = {
+  title: "Sign In - Access Your Documents",
+  description:
+    "Sign in to Readora to access your personal AI-powered document library and continue your voice learning journey.",
+  robots: {
+    index: false,
+    follow: true,
+  },
+};
 
 export default function Page() {
   return (

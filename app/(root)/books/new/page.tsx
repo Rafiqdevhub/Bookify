@@ -1,4 +1,22 @@
+import type { Metadata } from "next";
 import UploadForm from "@/components/UploadForm";
+
+export const metadata: Metadata = {
+  title: "Upload New Document - Add to Your Library",
+  description:
+    "Upload your PDF, book, or research paper to create an interactive voice learning experience. Start conversing with your documents.",
+  keywords: [
+    "upload pdf",
+    "add document",
+    "upload book",
+    "new document",
+    "pdf upload",
+  ],
+  robots: {
+    index: false,
+    follow: true,
+  },
+};
 
 const Page = () => {
   return (
