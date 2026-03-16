@@ -34,9 +34,9 @@ export default function ContactPage() {
             Let&apos;s Start a Conversation
           </h1>
           <p className="subtitle max-w-3xl">
-            Have questions about Readora-AI? Need help with your account? Or
-            just want to share feedback? Drop us a message and we&apos;ll
-            respond as soon as possible.
+            Have questions about Readora? Need help with your account? Or just
+            want to share feedback? Drop us a message and we&apos;ll respond as
+            soon as possible.
           </p>
         </section>
 
