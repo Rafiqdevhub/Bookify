@@ -4,7 +4,7 @@ import { BookCardProps } from "@/types";
 
 const BookCard = ({ title, author, coverURL, slug }: BookCardProps) => {
   return (
-    <Link href={`/books/${slug}`}>
+    <Link href={`/books/${slug}`} className="group block h-full">
       <article className="book-card">
         <figure className="book-card-figure">
           <div className="book-card-cover-wrapper">
@@ -15,6 +15,7 @@ const BookCard = ({ title, author, coverURL, slug }: BookCardProps) => {
               height={200}
               className="book-card-cover"
             />
+            <div className="book-card-shine" aria-hidden="true" />
           </div>
 
           <figcaption className="book-card-meta">

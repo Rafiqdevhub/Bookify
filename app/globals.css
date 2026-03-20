@@ -561,6 +561,45 @@
     @apply bg-[var(--bg-secondary)] rounded-[14px] p-12 max-w-md mx-auto;
   }
 
+  .documents-shell {
+    @apply relative rounded-[22px] border border-(--border-subtle) p-5 md:p-7 lg:p-8 overflow-hidden;
+    background:
+      radial-gradient(
+        circle at 90% 0%,
+        rgba(210, 175, 122, 0.24),
+        transparent 42%
+      ),
+      radial-gradient(
+        circle at 5% 80%,
+        rgba(102, 56, 32, 0.13),
+        transparent 48%
+      ),
+      linear-gradient(140deg, #fffdf8 0%, #f7ecda 100%);
+    box-shadow: var(--shadow-soft-md);
+  }
+  .documents-header {
+    @apply flex flex-col gap-5 md:gap-6 lg:flex-row lg:items-end lg:justify-between mb-7 md:mb-9;
+  }
+  .documents-header-copy {
+    @apply max-w-2xl;
+  }
+  .documents-eyebrow {
+    @apply inline-flex items-center rounded-full border border-(--border-medium) px-3 py-1 text-xs font-semibold uppercase tracking-[0.12em] text-[#5c3f2a] bg-white/75;
+  }
+  .documents-title {
+    @apply mt-3 text-[34px] md:text-[42px] font-serif font-semibold tracking-[-0.02em] leading-[1.05] text-[#212a3b];
+  }
+  .documents-subtitle {
+    @apply mt-2 max-w-xl text-sm md:text-base text-[#3d485e] leading-relaxed;
+  }
+  .documents-header-actions {
+    @apply flex flex-col sm:flex-row sm:items-center gap-3 md:gap-4 w-full lg:w-auto;
+  }
+  .documents-count-pill {
+    @apply inline-flex items-center justify-center rounded-full px-4 py-2 text-sm font-semibold text-[#212a3b] border border-(--border-medium) bg-white/70;
+    box-shadow: var(--shadow-soft-sm);
+  }
+
   /* ===========================================
      TRANSCRIPT COMPONENT
      =========================================== */
@@ -649,10 +688,13 @@
      BOOK CARD COMPONENT
      =========================================== */
   .book-card {
-    @apply flex flex-col transition-all duration-200 h-full border-0;
+    @apply flex flex-col h-full rounded-[18px] border border-(--border-subtle) p-3 md:p-4 transition-all duration-300 bg-white/80 backdrop-blur-sm;
+    box-shadow: var(--shadow-soft-sm);
 
     &:hover {
-      transform: translateY(-4px);
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-soft-lg);
+      border-color: rgba(102, 56, 32, 0.28);
     }
   }
   .book-card-3d {
@@ -665,21 +707,51 @@
     @apply absolute -left-1 top-2 bottom-2 w-3 bg-gradient-to-r from-[#8B7355] to-[#A08060] rounded-l-md z-0;
   }
   .book-card-cover-wrapper {
-    @apply relative bg-white rounded-[14px] overflow-hidden flex items-center justify-center h-[205px] md:h-[240px];
+    @apply relative rounded-[14px] overflow-hidden flex items-center justify-center h-[205px] md:h-[240px] border border-[#eadfcb];
+    background: linear-gradient(165deg, #fff 0%, #f8eddc 100%);
   }
   .book-card-cover {
-    @apply w-auto h-[170px] md:h-[200px] object-cover rounded-lg;
+    @apply w-auto h-[170px] md:h-[200px] object-cover rounded-lg relative z-10 transition-transform duration-300;
     box-shadow: var(--shadow-book);
+
+    .group:hover & {
+      transform: scale(1.03);
+    }
+  }
+  .book-card-chip {
+    @apply absolute top-2.5 left-2.5 z-20 rounded-full border border-[#d9c4a4] bg-white/90 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-[0.1em] text-[#69432f];
+  }
+  .book-card-shine {
+    @apply absolute -left-1/3 top-0 h-full w-[46%] z-20 pointer-events-none;
+    background: linear-gradient(
+      120deg,
+      rgba(255, 255, 255, 0),
+      rgba(255, 255, 255, 0.55),
+      rgba(255, 255, 255, 0)
+    );
+    transform: translateX(-180%) skewX(-16deg);
+    transition: transform 0.7s ease;
+
+    .group:hover & {
+      transform: translateX(340%) skewX(-16deg);
+    }
   }
   .book-card-meta {
-    @apply mt-4 md:mt-5 flex-1 flex flex-col gap-1;
+    @apply mt-4 md:mt-5 flex-1 flex flex-col gap-1.5;
   }
   .book-card-title {
-    @apply font-bold text-[#212a3b] line-clamp-1 text-base md:text-xl leading-[22px] md:leading-[30px];
+    @apply font-bold text-[#212a3b] line-clamp-2 text-base md:text-xl leading-[22px] md:leading-[30px];
     font-family: "IBM Plex Serif", serif;
   }
   .book-card-author {
     @apply text-sm md:text-base font-medium text-[#3d485e] line-clamp-1;
+  }
+  .book-card-cta {
+    @apply mt-1 text-xs md:text-sm font-semibold uppercase tracking-[0.1em] text-[#663820] opacity-80 transition-opacity;
+
+    .group:hover & {
+      opacity: 1;
+    }
   }
 
   /* ===========================================
